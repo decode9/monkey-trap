@@ -3,6 +3,7 @@ import styles from './engine.module.scss';
 import { useEvent } from '../../hooks';
 import CreateEngine from './createEngine';
 import Monkey0 from '../../assets/img/walk/smart monkey_knight_walk_1_000.png';
+import Hunter from '../../assets/img/hunter.png';
 
 const initialState = {
 	stage: 0,
@@ -12,7 +13,7 @@ const initialState = {
 	sprite: Monkey0,
 };
 const blockWidth = 80;
-const blockHeight = 200;
+const blockHeight = 236;
 
 export default () => {
 	//Estado del juego
@@ -66,12 +67,13 @@ export default () => {
 			alert('You Won!, Play Again?');
 			setGameState(initialState);
 			setStart(true);
-        }
-        // eslint-disable-next-line
+		}
+		// eslint-disable-next-line
 	}, [start, gameState]);
 
 	return (
 		<div className={styles.container}>
+			<div className={styles.score}>{gameState.stage}</div>
 			<div
 				className={styles.stage}
 				style={{
@@ -86,7 +88,7 @@ export default () => {
 						}px)`, //Move Stage
 					}}
 				>
-					<img src={gameState.sprite} alt="monkey" />
+					<img src={gameState.sprite} alt='monkey' />
 				</span>
 
 				{gameState.blocks.map((block) => (
@@ -98,7 +100,9 @@ export default () => {
 							height: blockHeight,
 							width: blockWidth,
 						}}
-					/>
+					>
+						<img src={Hunter} alt='hunter' />
+					</span>
 				))}
 			</div>
 		</div>

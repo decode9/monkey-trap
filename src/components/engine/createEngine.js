@@ -13,7 +13,7 @@ const charWidth = 100;
 const charHeight = 170;
 
 const blockWidth = 80;
-const blockHeight = 200;
+const blockHeight = 236;
 
 // this is in comparison to the rest of the game
 // 2 is twice the speed
@@ -106,7 +106,6 @@ export default function CreateEngine(setState) {
 
 		let randomPosition = Math.floor(Math.random() * (1500 - 1000 + 1) + 1000);
 		if (this.game === 'win') {
-			console.log(randomPosition);
 			this.blocks.push(this.blocks[this.blocks.length - 1] + randomPosition);
 			this.game = 'start';
 		}
